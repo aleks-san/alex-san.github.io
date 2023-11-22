@@ -4,12 +4,193 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="A_style.css">
-    <title>jakistamtekst</title>
+    <title>Kalkulator</title>
+	
+<style>
+
+
+
+
+.przyciskduzy{
+	
+	margin: 4px;
+	width: 275px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 40px;
+    background: #eb888b;
+    
+    
+}
+
+
+
+.przyciskdzialania{
+	
+	margin: 4px;
+	width: 60px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    background: #9cdff0;
+    
+    
+}
+
+
+
+
+
+.kontener{
+	margin-top: 75px;
+	
+    text-align: center;
+	
+	
+    
+}
+
+input{
+	color: purple;
+	text-align: center;
+	font-family: Chiller;
+	font-weight: bold;
+    border-radius: 0px;
+    font-size:50px;
+    height: 100px;
+    width: 280px;
+	
+    
+}
+ 
+ 
+button{
+    border-radius: 10px;
+    font-size: 15px;
+    background: #e8f2fc;
+    width: 60px;
+    height: 50px;
+    margin: 4px;
+	
+}
+
+
+
+
+ 
+.kalkulator{
+    background-color: #abb0c2;
+	font-family: Verdana;
+	text-align: centre;
+    padding: 25px;
+    border-radius: 10px;
+    display: inline-block;
+   
+}
+</style>
 </head>
  
-<body><h3>jakistamtekst</h3></body>
+<body bgcolor="lightyellow">
 
-<script src="A_script.js"></script>
+
+    <div class="kontener">
+        
+ 
+        <div class="kalkulator">
+		
+		
+		<h3>cal-COOL-ator®</h3>
+		
+		
+		
+            <input type="text" name="screen" id="display">
+            
+			<br>
+			<table>
+			<br>
+			
+                
+                <tr>
+					<td><button class="przyciskdzialania">C</button></td>
+                    <td><button>7</button></td>
+                    <td><button>8</button></td>
+                    <td><button>9</button></td>
+                    
+                </tr>
+                <tr>
+					<td><button  class="przyciskdzialania">.</button></td>
+                    <td><button>4</button></td>
+                    <td><button>5</button></td>
+                    <td><button>6</button></td>         
+				</tr>
+                <tr>
+					<td><button  class="przyciskdzialania">+</button></td>
+                    <td><button>1</button></td>
+                    <td><button>2</button></td>
+                    <td><button>3</button></td>
+                    
+                </tr>
+                <tr>
+					<td><button  class="przyciskdzialania">-</button></td>
+					<td><button  class="przyciskdzialania">X</button></td>
+					<td><button  class="przyciskdzialania">/</button></td>
+                    <td><button>0</button></td>
+					
+                    
+				</tr>
+				
+				<tr>
+				</table>
+				<table>
+				<tr>
+				<td><button class="przyciskduzy">=</button></td>
+                </tr>
+		
+            </table>
+        </div>
+    </div>
+ 
+<script>
+
+
+let screen = document.getElementById("display");
+buttons = document.querySelectorAll("button");
+
+
+
+let screenValue = "";
+
+for (item of buttons) {
+  item.addEventListener("click", (e) => {
+    buttonText = e.target.innerText;
+	
+	
+    if (buttonText == "X") {
+      buttonText = "*";
+      screenValue += buttonText;
+      screen.value = screenValue;
+	  
+    } else if (buttonText == "C") {
+      screenValue = "";
+      screen.value = screenValue;
+    } else if (buttonText == "=") {
+      var result;
+	  
+      try {
+        result = eval(screenValue);
+      } catch (error) {
+        result = "ERROR!";
+      }
+	  
+      screen.value = result;
+    } else {
+      screenValue += buttonText;
+      screen.value = screenValue;
+    }
+  });
+}
+</script>
+</body>
+
  
 </html>
